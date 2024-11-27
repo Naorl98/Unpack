@@ -1,130 +1,125 @@
-Unpack Script
+# Unpack Script
 
-This script is a versatile tool for unpacking various types of compressed files and directories. It supports both single-file and directory-based operations and includes features like recursive processing and verbose logging. Below is a comprehensive guide on how to use it.
+![Shell Script](https://img.shields.io/badge/shell-bash-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen)
 
-Features
+## Overview
 
-Supported Compression Formats:
+The `unpack` script is a powerful Bash tool for unpacking compressed files and directories. With support for multiple formats, recursive directory unpacking, and verbose output, this script makes file extraction simple and efficient.
 
-.zip
+---
 
-.bz2
+## Features
 
-.gz
+- **Supported Compression Formats:**
+  - `.zip`, `.bz2`, `.gz`, `.Z`
+- **Unique Name Handling:** Avoid overwriting by generating new names automatically.
+- **Recursive Unpacking:** Process entire directories and subdirectories.
+- **Verbose Logging:** See what’s happening during unpacking.
+- **Error Reporting:** Know which files failed to unpack and why.
 
-.Z
+---
 
-Key Functionalities:
+## Installation
 
-Automatically generates unique file or directory names if conflicts arise.
+Clone the repository:
+```bash
+git clone https://github.com/your-username/unpack-script.git
+```
+Navigate to the directory:
+```bash
+cd unpack-script
+```
+Make the script executable:
+```bash
+chmod +x unpack.sh
+```
 
-Recursively processes directories when specified.
+---
 
-Verbose mode for detailed output.
+## Usage
 
-Error Handling:
+Run the script using:
+```bash
+./unpack [-r] [-v] file [file...]
+```
 
-Tracks failed decompression attempts.
+### Command Options
 
-Provides clear summary output at the end.
+- `-r` : Recursive mode (process subdirectories).
+- `-v` : Verbose mode (detailed logging).
 
-Usage
+### Examples
 
-unpack [-r] [-v] file [file...]
+1. **Unpack a single file:**
+   ```bash
+   ./unpack file.zip
+   ```
 
-Options
+2. **Recursive unpacking:**
+   ```bash
+   ./unpack -r /path/to/directory
+   ```
 
--r : Enables recursive processing of directories.
+3. **Verbose mode:**
+   ```bash
+   ./unpack -v file.gz
+   ```
 
--v : Enables verbose mode for detailed output of operations.
+4. **Combine options:**
+   ```bash
+   ./unpack -r -v /path/to/directory
+   ```
 
-Arguments
+---
 
-file : One or more files or directories to process.
+## Requirements
 
-Examples
+Ensure the following utilities are installed:
 
-Unpack a single file:
+- `unzip`
+- `bunzip2`
+- `gunzip`
+- `uncompress`
 
-./unpack file.zip
+---
 
-Unpack all files in a directory (non-recursive):
+## Contributing
 
-./unpack /path/to/directory
+Contributions are welcome! Follow these steps:
 
-Recursive unpacking:
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request.
 
-./unpack -r /path/to/directory
+---
 
-Verbose mode for detailed logs:
+## License
 
-./unpack -v file.gz
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Combine options:
+---
 
-./unpack -r -v /path/to/directory
+## Contact
 
-Script Logic
+For any issues or questions, please open an issue or contact [Your Name](mailto:your-email@example.com).
 
-File Name Generation:
+---
 
-If a file or directory name already exists, a new name is generated using a numbered suffix (e.g., file(1).zip, dir(2)).
+### Show Your Support
 
-Unpacking Specific Formats:
+If you find this script helpful, please give the repository a ⭐ on GitHub!
 
-.zip: Extracts files to a new directory.
-
-.bz2: Decompresses into a new file.
-
-.gz: Extracts to a directory with a unique name.
-
-.Z: Decompresses into a new file.
-
-Directory Processing:
-
-Iterates through all items in a directory.
-
-If recursive mode is enabled, processes subdirectories.
-
-Summary Output:
-
-Provides a count of successfully unpacked archives.
-
-Reports the number of failed attempts.
-
-Requirements
-
-unzip: For handling .zip files.
-
-bunzip2: For handling .bz2 files.
-
-gunzip: For handling .gz files.
-
-uncompress: For handling .Z files.
-
-Make sure these utilities are installed on your system and accessible in your $PATH.
-
-Error Handling
-
-If an invalid file or directory is specified, the script will log an error and continue processing the next item.
-
-Failed decompression attempts are reported in the summary output.
-
-Exit Codes
-
-0: Success - All files were decompressed successfully.
-
-1: Failure - Some files could not be decompressed.
-
-Contributing
-
-Feel free to submit issues or pull requests on the GitHub repository to enhance the script. Contributions are always welcome!
-
-License
-
-This script is open-source and distributed under the MIT License. See the LICENSE file for details.
-
-Author
-
-Developed by [Naor Ladani].
-
+![GitHub Stars](https://img.shields.io/github/stars/your-username/unpack-script?style=social)
